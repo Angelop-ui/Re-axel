@@ -24,6 +24,7 @@
             font-weight: bold;
             cursor: pointer;
             transition: transform 0.2s;
+            z-index: 150;
         }
         .vibrar {
             animation: vibrar 0.5s;
@@ -68,7 +69,6 @@
         .producto button:hover {
             background-color: #45a049;
         }
-        /* Modal (ventana carrito) */
         .modal {
             display: none;
             position: fixed;
@@ -86,6 +86,7 @@
             border-radius: 8px;
             max-height: 80%;
             overflow-y: auto;
+            position: relative;
         }
         .modal-content h2 {
             margin-top: 0;
@@ -108,7 +109,6 @@
             border-radius: 50%;
             cursor: pointer;
         }
-        /* Alerta */
         #alerta {
             position: fixed;
             top: 10px;
@@ -138,13 +138,10 @@
 
     <h1>Tienda de Zapatos</h1>
 
-    <!-- Botón del carrito -->
     <button id="carritoBtn">Carrito (0)</button>
 
-    <!-- Alerta de producto agregado -->
     <div id="alerta">¡Producto agregado!</div>
 
-    <!-- Productos -->
     <div class="productos">
         <div class="producto">
             <img src="Zapato Deportivo.jpg" alt="Zapato Deportivo">
@@ -175,18 +172,16 @@
         </div>
     </div>
 
-    <!-- Modal carrito -->
     <div id="modalCarrito" class="modal">
         <div class="modal-content">
             <h2>Tu Carrito</h2>
             <ul id="listaCarrito"></ul>
             <p id="totalCarrito">Total: $0</p>
             <button onclick="cerrarModal()">Cerrar</button>
-            <button id="comprarBtn" onclick="comprar()">Comprar</button>
+            <button id="comprarBtn" onclick="comprar()">Finalizar Compra</button>
         </div>
     </div>
 
-    <!-- Sonido ding y error -->
     <audio id="sonidoDing" src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_3d82fe7e71.mp3?filename=ding-36029.mp3" preload="auto"></audio>
     <audio id="sonidoError" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_a280663cca.mp3?filename=error-126627.mp3" preload="auto"></audio>
 
@@ -200,7 +195,7 @@
             carrito.push({ nombre, precio });
             actualizarCarrito();
             mostrarAlerta();
-            sonidoDing.play(); // Reproducir sonido correcto
+            sonidoDing.play();
         }
 
         function actualizarCarrito() {
@@ -209,18 +204,18 @@
 
         function abrirModal() {
             if (carrito.length === 0) {
-                sonidoError.play(); // Reproducir sonido de error
+                sonidoError.play();
                 vibrarBoton();
                 alert('Tu carrito está vacío.');
                 return;
             }
 
-            let lista = document.getElementById('listaCarrito');
+            const lista = document.getElementById('listaCarrito');
             lista.innerHTML = "";
 
             let total = 0;
             carrito.forEach((item, index) => {
-                let li = document.createElement('li');
+                const li = document.createElement('li');
                 li.innerHTML = `${item.nombre} - $${item.precio} 
                     <button class="close" onclick="eliminarDelCarrito(${index})">x</button>`;
                 lista.appendChild(li);
@@ -238,7 +233,7 @@
         function eliminarDelCarrito(indice) {
             carrito.splice(indice, 1);
             actualizarCarrito();
-            abrirModal();
+            abrirModal(); // para refrescar la lista
         }
 
         function mostrarAlerta() {
@@ -266,7 +261,7 @@
         function comprar() {
             if (carrito.length > 0) {
                 alert('¡Compra realizada con éxito!');
-                carrito = []; // Vaciar carrito después de la compra
+                carrito = [];
                 actualizarCarrito();
                 cerrarModal();
             }
@@ -276,4 +271,4 @@
     </script>
 
 </body>
-</html> 
+</html>
