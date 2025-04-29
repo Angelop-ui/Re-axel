@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <title>Tienda de Zapatos</title>
     <style>
+        /* Estilo base */
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
             background-color: #f4f4f4;
         }
+
         h1 {
             text-align: center;
         }
+
+        /* Botón de carrito */
         #carritoBtn {
             position: fixed;
             top: 20px;
@@ -26,16 +30,20 @@
             transition: transform 0.2s;
             z-index: 150;
         }
+
+        /* Animación de vibración */
         .vibrar {
             animation: vibrar 0.5s;
         }
+
         @keyframes vibrar {
-            0% { transform: translateX(0); }
+            0%, 100% { transform: translateX(0); }
             25% { transform: translateX(-5px); }
             50% { transform: translateX(5px); }
             75% { transform: translateX(-5px); }
-            100% { transform: translateX(0); }
         }
+
+        /* Contenedor de productos */
         .productos {
             display: flex;
             flex-wrap: wrap;
@@ -43,6 +51,7 @@
             gap: 20px;
             margin-top: 30px;
         }
+
         .producto {
             background-color: white;
             border-radius: 8px;
@@ -51,12 +60,14 @@
             text-align: center;
             padding: 20px;
         }
+
         .producto img {
             width: 100%;
             height: 150px;
             object-fit: cover;
             border-radius: 4px;
         }
+
         .producto button {
             margin-top: 10px;
             padding: 8px 12px;
@@ -66,41 +77,49 @@
             border-radius: 4px;
             cursor: pointer;
         }
+
         .producto button:hover {
             background-color: #45a049;
         }
+
+        /* Modal de carrito */
         .modal {
             display: none;
             position: fixed;
             z-index: 100;
-            left: 0; top: 0;
+            top: 0; left: 0;
             width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.6);
+            background-color: rgba(0, 0, 0, 0.6);
             justify-content: center;
             align-items: center;
         }
+
         .modal-content {
             background-color: white;
             padding: 20px;
             width: 400px;
-            border-radius: 8px;
             max-height: 80%;
             overflow-y: auto;
+            border-radius: 8px;
             position: relative;
         }
+
         .modal-content h2 {
             margin-top: 0;
         }
+
         .modal-content ul {
             list-style: none;
             padding: 0;
         }
+
         .modal-content li {
             margin-bottom: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
         .close {
             background-color: red;
             color: white;
@@ -109,6 +128,8 @@
             border-radius: 50%;
             cursor: pointer;
         }
+
+        /* Alerta de producto agregado */
         #alerta {
             position: fixed;
             top: 10px;
@@ -124,13 +145,14 @@
             opacity: 0;
             transition: opacity 0.5s ease;
         }
+
         #alerta.mostrar {
             display: block;
             opacity: 1;
         }
+
         #alerta.ocultar {
             opacity: 0;
-            transition: opacity 0.5s ease;
         }
     </style>
 </head>
@@ -143,6 +165,7 @@
     <div id="alerta">¡Producto agregado!</div>
 
     <div class="productos">
+        <!-- Producto 1 -->
         <div class="producto">
             <img src="Zapato Deportivo.jpg" alt="Zapato Deportivo">
             <h3>Zapato Deportivo</h3>
@@ -150,6 +173,7 @@
             <button onclick="agregarAlCarrito('Zapato Deportivo', 800)">Agregar al carrito</button>
         </div>
 
+        <!-- Producto 2 -->
         <div class="producto">
             <img src="Zapato Casual.jpg" alt="Zapato Casual">
             <h3>Zapato Casual</h3>
@@ -157,6 +181,7 @@
             <button onclick="agregarAlCarrito('Zapato Casual', 600)">Agregar al carrito</button>
         </div>
 
+        <!-- Producto 3 -->
         <div class="producto">
             <img src="Zapato Formal.png" alt="Zapato Formal">
             <h3>Zapato Formal</h3>
@@ -164,6 +189,7 @@
             <button onclick="agregarAlCarrito('Zapato Formal', 1200)">Agregar al carrito</button>
         </div>
 
+        <!-- Producto 4 -->
         <div class="producto">
             <img src="Bota.png" alt="Bota">
             <h3>Bota</h3>
@@ -172,6 +198,7 @@
         </div>
     </div>
 
+    <!-- Modal del carrito -->
     <div id="modalCarrito" class="modal">
         <div class="modal-content">
             <h2>Tu Carrito</h2>
@@ -182,6 +209,7 @@
         </div>
     </div>
 
+    <!-- Audios -->
     <audio id="sonidoDing" src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_3d82fe7e71.mp3?filename=ding-36029.mp3" preload="auto"></audio>
     <audio id="sonidoError" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_a280663cca.mp3?filename=error-126627.mp3" preload="auto"></audio>
 
@@ -199,7 +227,7 @@
         }
 
         function actualizarCarrito() {
-            carritoBtn.innerText = Carrito (${carrito.length});
+            carritoBtn.innerText = `Carrito (${carrito.length})`;
         }
 
         function abrirModal() {
@@ -222,7 +250,7 @@
                 total += item.precio;
             });
 
-            document.getElementById('totalCarrito').innerText = Total: $${total};
+            document.getElementById('totalCarrito').innerText = `Total: $${total}`;
             document.getElementById('modalCarrito').style.display = "flex";
         }
 
