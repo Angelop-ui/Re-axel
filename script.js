@@ -3,22 +3,22 @@ const productos = [
     {
         nombre: "Zapato Deportivo",
         precio: 800,
-        imagen: "images/zapato-deportivo.jpg"
+        imagen: "Zapato-Deportivo.jpg"
     },
     {
         nombre: "Zapato Casual",
         precio: 600,
-        imagen: "images/zapato-casual.jpg"
+        imagen: "Zapato-Casual.jpg"
     },
     {
         nombre: "Zapato Formal",
         precio: 1200,
-        imagen: "images/zapato-formal.jpg"
+        imagen: "Zapato-Formal.png"
     },
     {
         nombre: "Bota",
         precio: 1500,
-        imagen: "images/bota.jpg"
+        imagen: "Bota.png"
     }
 ];
 
