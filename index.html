@@ -2,85 +2,64 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tienda de Zapatos</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Menú principal -->
   <nav class="menu-principal">
     <ul>
       <li><a href="#inicio">Inicio</a></li>
       <li><a href="#productos">Productos</a></li>
+      <li><a href="#ofertas">Ofertas</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
-    <input type="text" id="busqueda" placeholder="Buscar zapatos...">
   </nav>
 
+  <!-- Botón del carrito -->
   <button id="carritoBtn">Carrito (0)</button>
+
+  <!-- Alerta de producto agregado -->
   <div id="alerta">¡Producto agregado!</div>
 
-  <section id="inicio" class="seccion-inicio">
+  <!-- Sección Inicio -->
+  <section id="inicio" class="seccion">
     <h1>Bienvenido a nuestra Tienda de Zapatos</h1>
-    <p>Comodidad, estilo y calidad al mejor precio.</p>
+    <p>Zapatos deportivos, casuales y formales de calidad y con estilo.</p>
   </section>
 
-  <h1 id="productos">Productos</h1>
-  <div class="productos">
-    <div class="producto" data-nombre="Zapato Deportivo">
-      <img src="deportivo.jpg" alt="Zapato Deportivo">
-      <h3>Zapato Deportivo</h3>
-      <p>$800</p>
-      <button onclick="agregarAlCarrito('Zapato Deportivo', 800)">Agregar al carrito</button>
-    </div>
-    <div class="producto" data-nombre="Zapato Casual">
-      <img src="casual.jpg" alt="Zapato Casual">
-      <h3>Zapato Casual</h3>
-      <p>$600</p>
-      <button onclick="agregarAlCarrito('Zapato Casual', 600)">Agregar al carrito</button>
-    </div>
-    <div class="producto" data-nombre="Zapato Formal">
-      <img src="formal.png" alt="Zapato Formal">
-      <h3>Zapato Formal</h3>
-      <p>$1200</p>
-      <button onclick="agregarAlCarrito('Zapato Formal', 1200)">Agregar al carrito</button>
-    </div>
-    <div class="producto" data-nombre="Bota">
-      <img src="bota.png" alt="Bota">
-      <h3>Bota</h3>
-      <p>$1500</p>
-      <button onclick="agregarAlCarrito('Bota', 1500)">Agregar al carrito</button>
-    </div>
-  </div>
+  <!-- Sección Productos -->
+  <section id="productos" class="seccion">
+    <h2>Productos</h2>
+    <!-- Campo de búsqueda -->
+    <input type="text" id="busqueda" placeholder="Buscar productos...">
+    <div class="productos" id="contenedor-productos"></div>
+  </section>
 
+  <!-- Modal Carrito -->
   <div id="modalCarrito" class="modal">
     <div class="modal-content">
       <h2>Tu Carrito</h2>
       <ul id="listaCarrito"></ul>
       <p id="totalCarrito">Total: $0</p>
       <button onclick="cerrarModal()">Cerrar</button>
-      <button onclick="mostrarPasarela()">Pagar</button>
+      <button id="comprarBtn" onclick="comprar()">Comprar</button>
     </div>
   </div>
 
-  <div id="modalPago" class="modal">
-    <div class="modal-content">
-      <h2>Pasarela de Pago</h2>
-      <p>Simulación de pago</p>
-      <input type="text" placeholder="Número de tarjeta">
-      <input type="text" placeholder="Nombre en tarjeta">
-      <input type="text" placeholder="Fecha de expiración">
-      <input type="text" placeholder="CVV">
-      <button onclick="pagar()">Confirmar Pago</button>
-    </div>
-  </div>
-
-  <section id="contacto">
+  <!-- Sección Contacto -->
+  <section id="contacto" class="seccion contacto">
     <h2>Contáctanos</h2>
-    <p>Email: contacto@tiendazapatos.com</p>
+    <p>¿Tienes preguntas? Escríbenos a contacto@tiendazapatos.com</p>
     <p>Teléfono: (555) 123-4567</p>
   </section>
 
+  <!-- Audios -->
+  <audio id="sonidoDing" src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_3d82fe7e71.mp3?filename=ding-36029.mp3" preload="auto"></audio>
+  <audio id="sonidoError" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_a280663cca.mp3?filename=error-126627.mp3" preload="auto"></audio>
+
+  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
-
