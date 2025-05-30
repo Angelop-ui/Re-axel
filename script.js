@@ -2,10 +2,10 @@ console.log("JS cargado");
 
 let carrito = [];
 const productos = [
-  { nombre: "Zapato Deportivo", precio: 800, imagen: "images/zapato-deportivo.jpg" },
-  { nombre: "Zapato Casual", precio: 600, imagen: "images/zapato-casual.jpg" },
-  { nombre: "Zapato Formal", precio: 1200, imagen: "images/zapato-formal.jpg" },
-  { nombre: "Bota", precio: 1500, imagen: "images/bota.jpg" }
+  { nombre: "Zapato Deportivo", precio: 800, imagen: "deportivo.jpg" },
+  { nombre: "Zapato Casual", precio: 600, imagen: "casual.jpg" },
+  { nombre: "Zapato Formal", precio: 1200, imagen: "formal.png" },
+  { nombre: "Bota", precio: 1500, imagen: "bota.png" }
 ];
 
 const sonidoDing = document.getElementById('sonidoDing');
