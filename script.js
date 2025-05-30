@@ -1,67 +1,62 @@
-let carrito = [];
+// Lista de productos
+const productos = [
+    {
+        nombre: "Zapato Deportivo",
+        precio: 800,
+        imagen: "images/zapato-deportivo.jpg"
+    },
+    {
+        nombre: "Zapato Casual",
+        precio: 600,
+        imagen: "images/zapato-casual.jpg"
+    },
+    {
+        nombre: "Zapato Formal",
+        precio: 1200,
+        imagen: "images/zapato-formal.jpg"
+    },
+    {
+        nombre: "Bota",
+        precio: 1500,
+        imagen: "images/bota.jpg"
+    }
+];
 
+let carrito = [];
 const sonidoDing = document.getElementById('sonidoDing');
 const sonidoError = document.getElementById('sonidoError');
 const carritoBtn = document.getElementById('carritoBtn');
+const listaProductos = document.getElementById('listaProductos');
+const buscador = document.getElementById('buscador');
 
+// Función para mostrar los productos
+function mostrarProductos(filtrados) {
+    listaProductos.innerHTML = '';
+    filtrados.forEach(producto => {
+        const div = document.createElement('div');
+        div.classList.add('producto');
+        div.innerHTML = `
+            <img src="${producto.imagen}" alt="${producto.nombre}">
+            <h3>${producto.nombre}</h3>
+            <p>$${producto.precio}</p>
+            <button onclick="agregarAlCarrito('${producto.nombre}', ${producto.precio})">Agregar al carrito</button>
+        `;
+        listaProductos.appendChild(div);
+    });
+}
+
+// Mostrar todos los productos al cargar
+mostrarProductos(productos);
+
+// Función para agregar al carrito
 function agregarAlCarrito(nombre, precio) {
-  carrito.push({ nombre, precio });
-  actualizarCarrito();
-  mostrarAlerta();
-  sonidoDing.play();
-}
-
-function actualizarCarrito() {
-  carritoBtn.innerText = `Carrito (${carrito.length})`;
-}
-
-function abrirModal() {
-  if (carrito.length === 0) {
-    sonidoError.play();
-    alert('Tu carrito está vacío.');
-    return;
-  }
-
-  const lista = document.getElementById('listaCarrito');
-  lista.innerHTML = "";
-
-  let total = 0;
-  carrito.forEach((item, index) => {
-    const li = document.createElement('li');
-    li.innerHTML = `${item.nombre} - $${item.precio} 
-      <button onclick="eliminarDelCarrito(${index})">Eliminar</button>`;
-    lista.appendChild(li);
-    total += item.precio;
-  });
-
-  document.getElementById('totalCarrito').innerText = `Total: $${total}`;
-  document.getElementById('modalCarrito').style.display = 'flex';
-}
-
-function cerrarModal() {
-  document.getElementById('modalCarrito').style.display = 'none';
-}
-
-function eliminarDelCarrito(indice) {
-  carrito.splice(indice, 1);
-  actualizarCarrito();
-  abrirModal();
-}
-
-function comprar() {
-  if (carrito.length > 0) {
-    alert('¡Gracias por tu compra!');
-    carrito = [];
+    carrito.push({ nombre, precio });
     actualizarCarrito();
-    cerrarModal();
-  }
+    mostrarAlerta();
+    sonidoDing.play();
 }
 
-function mostrarAlerta() {
-  const alerta = document.getElementById('alerta');
-  alerta.style.display = 'block';
-  setTimeout(() => alerta.style.display = 'none', 2000);
-}
-
-carritoBtn.addEventListener('click', abrirModal);
+// Función para actualizar el botón del carrito
+::contentReference[oaicite:23]{index=23}
+ 
 
