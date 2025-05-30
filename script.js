@@ -1,4 +1,3 @@
-console.log("JS cargado");
 
 let carrito = [];
 const productos = [
