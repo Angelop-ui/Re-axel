@@ -20,13 +20,14 @@
 </head>
 <body>
 
-  <!-- Menú de navegación -->
+  <!-- Menú de navegación con mínimo 5 enlaces -->
   <header>
     <nav class="menu-principal" aria-label="Menú principal">
       <ul>
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#productos">Productos</a></li>
         <li><a href="#ofertas">Ofertas</a></li>
+        <li><a href="#categorias">Categorías</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
@@ -54,7 +55,38 @@
       <label for="busqueda" class="visually-hidden">Buscar productos</label>
       <input type="text" id="busqueda" placeholder="Buscar productos..." aria-label="Buscar productos">
       <div class="productos" id="contenedor-productos">
-        <!-- Aquí se insertarán dinámicamente los productos -->
+        <!-- Productos generados dinámicamente -->
+      </div>
+    </section>
+
+    <section id="ofertas" class="seccion">
+      <h2>Ofertas</h2>
+      <p>Aprovecha nuestras promociones exclusivas en calzado deportivo y casual.</p>
+      <ul>
+        <li>🔥 20% de descuento en tenis</li>
+        <li>👞 Compra 2, paga 1 en mocasines</li>
+        <li>🎁 Envío gratis en compras mayores a $800</li>
+      </ul>
+    </section>
+
+    <section id="categorias" class="seccion">
+      <h2>Categorías</h2>
+      <div class="productos">
+        <div class="producto">
+          <img src="https://via.placeholder.com/200x150?text=Deportivos" alt="Zapatos deportivos">
+          <h3>Deportivos</h3>
+          <p>Para correr, entrenar o caminar con comodidad.</p>
+        </div>
+        <div class="producto">
+          <img src="https://via.placeholder.com/200x150?text=Casuales" alt="Zapatos casuales">
+          <h3>Casuales</h3>
+          <p>Diseño moderno y cómodo para el día a día.</p>
+        </div>
+        <div class="producto">
+          <img src="https://via.placeholder.com/200x150?text=Formales" alt="Zapatos formales">
+          <h3>Formales</h3>
+          <p>Perfectos para oficina o eventos elegantes.</p>
+        </div>
       </div>
     </section>
 
