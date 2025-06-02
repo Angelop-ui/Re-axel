@@ -5,10 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tienda de Zapatos</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      border: 0;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Encabezado -->
+  <!-- Menú de navegación -->
   <header>
     <nav class="menu-principal" aria-label="Menú principal">
       <ul>
@@ -18,46 +30,45 @@
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
-
-    <!-- Botón del carrito -->
-    <button id="carritoBtn" aria-label="Ver carrito">🛒 Carrito (<span id="contadorCarrito">0</span>)</button>
   </header>
 
-  <!-- Mensaje de alerta -->
+  <!-- Botón flotante del carrito -->
+  <button id="carritoBtn" aria-label="Ver carrito">
+    🛒 Carrito (<span id="contadorCarrito">0</span>)
+  </button>
+
+  <!-- Alerta -->
   <div id="alerta" role="alert" aria-live="assertive" hidden>
     ¡Producto agregado!
   </div>
 
   <!-- Contenido principal -->
   <main>
-    <!-- Sección Inicio -->
     <section id="inicio" class="seccion">
       <h1>Bienvenido a nuestra Tienda de Zapatos</h1>
       <p>Zapatos deportivos, casuales y formales de calidad y con estilo.</p>
     </section>
 
-    <!-- Sección Productos -->
     <section id="productos" class="seccion">
       <h2>Productos</h2>
       <label for="busqueda" class="visually-hidden">Buscar productos</label>
       <input type="text" id="busqueda" placeholder="Buscar productos..." aria-label="Buscar productos">
-      <div class="productos" id="contenedor-productos"></div>
+      <div class="productos" id="contenedor-productos">
+        <!-- Aquí se insertarán dinámicamente los productos -->
+      </div>
     </section>
 
-    <!-- Modal Carrito -->
-    <div id="modalCarrito" class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloCarrito" hidden>
+    <!-- Modal del carrito -->
+    <div id="modalCarrito" class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloCarrito">
       <div class="modal-content">
         <h2 id="tituloCarrito">Tu Carrito</h2>
-        <ul id="listaCarrito" aria-label="Lista de productos en el carrito"></ul>
+        <ul id="listaCarrito"></ul>
         <p id="totalCarrito">Total: $0</p>
-        <div class="botones-modal">
-          <button onclick="cerrarModal()">Cerrar</button>
-          <button id="comprarBtn" onclick="comprar()">Comprar</button>
-        </div>
+        <button onclick="cerrarModal()">Cerrar</button>
+        <button id="comprarBtn" onclick="comprar()">Comprar</button>
       </div>
     </div>
 
-    <!-- Sección Contacto -->
     <section id="contacto" class="seccion contacto">
       <h2>Contáctanos</h2>
       <p>¿Tienes preguntas? Escríbenos a <a href="mailto:contacto@tiendazapatos.com">contacto@tiendazapatos.com</a></p>
