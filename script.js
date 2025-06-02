@@ -1,4 +1,3 @@
-
 let carrito = [];
 const productos = [
   { nombre: "Zapato Deportivo", precio: 800, imagen: "deportivo.jpg" },
@@ -38,6 +37,7 @@ function agregarAlCarrito(nombre, precio) {
   actualizarCarrito();
   mostrarAlerta();
   sonidoDing.play();
+  guardarCarrito();
 }
 
 function actualizarCarrito() {
@@ -75,6 +75,7 @@ function eliminarDelCarrito(indice) {
   carrito.splice(indice, 1);
   actualizarCarrito();
   abrirModal();
+  guardarCarrito();
 }
 
 function mostrarAlerta() {
@@ -91,6 +92,20 @@ function comprar() {
     carrito = [];
     actualizarCarrito();
     cerrarModal();
+    guardarCarrito();
+  }
+}
+
+// Guardar en localStorage
+function guardarCarrito() {
+  localStorage.setItem('carrito', JSON.stringify(carrito));
+}
+
+function cargarCarrito() {
+  const data = localStorage.getItem('carrito');
+  if (data) {
+    carrito = JSON.parse(data);
+    actualizarCarrito();
   }
 }
 
@@ -99,5 +114,6 @@ inputBusqueda.addEventListener('input', (e) => {
   mostrarProductos(e.target.value);
 });
 
-// Mostrar productos al cargar
+// Cargar al inicio
 mostrarProductos();
+cargarCarrito();
