@@ -3,6 +3,7 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
+  padding-bottom: 100px; /* espacio para que el botón flotante no tape contenido */
 }
 
 .seccion {
@@ -15,7 +16,7 @@ body {
   padding: 10px 0;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 1100; /* Asegura que esté por encima del carritoBtn */
 }
 
 .menu-principal ul {
@@ -51,8 +52,10 @@ body {
   border-radius: 30px;
   font-weight: bold;
   cursor: pointer;
+  z-index: 1050; /* Por encima del contenido pero debajo del modal */
 }
 
+/* Productos */
 .productos {
   display: flex;
   flex-wrap: wrap;
@@ -95,12 +98,14 @@ body {
 .modal {
   display: none;
   position: fixed;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.6);
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 1200; /* Encima de todo */
 }
 
 .modal-content {
@@ -112,6 +117,7 @@ body {
   overflow-y: auto;
 }
 
+/* Alerta */
 #alerta {
   position: fixed;
   top: 10px;
@@ -122,7 +128,7 @@ body {
   padding: 10px 20px;
   border-radius: 20px;
   display: none;
-  z-index: 200;
+  z-index: 1150;
   font-weight: bold;
   opacity: 0;
   transition: opacity 0.5s ease;
@@ -141,4 +147,26 @@ body {
   margin-top: 10px;
   border: 1px solid #ccc;
   border-radius: 20px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  #carritoBtn {
+    padding: 8px 14px;
+    font-size: 14px;
+    right: 10px;
+    top: 15px;
+  }
+
+  .producto {
+    width: 90%;
+  }
+
+  #busqueda {
+    width: 80%;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
 }
