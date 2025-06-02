@@ -2,64 +2,75 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tienda de Zapatos</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Menú principal -->
-  <nav class="menu-principal">
-    <ul>
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#productos">Productos</a></li>
-      <li><a href="#ofertas">Ofertas</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </nav>
+  <!-- Encabezado -->
+  <header>
+    <nav class="menu-principal" aria-label="Menú principal">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#ofertas">Ofertas</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
 
-  <!-- Botón del carrito -->
-  <button id="carritoBtn">Carrito (0)</button>
+    <!-- Botón del carrito -->
+    <button id="carritoBtn" aria-label="Ver carrito">🛒 Carrito (<span id="contadorCarrito">0</span>)</button>
+  </header>
 
-  <!-- Alerta de producto agregado -->
-  <div id="alerta">¡Producto agregado!</div>
-
-  <!-- Sección Inicio -->
-  <section id="inicio" class="seccion">
-    <h1>Bienvenido a nuestra Tienda de Zapatos</h1>
-    <p>Zapatos deportivos, casuales y formales de calidad y con estilo.</p>
-  </section>
-
-  <!-- Sección Productos -->
-  <section id="productos" class="seccion">
-    <h2>Productos</h2>
-    <!-- Campo de búsqueda -->
-    <input type="text" id="busqueda" placeholder="Buscar productos...">
-    <div class="productos" id="contenedor-productos"></div>
-  </section>
-
-  <!-- Modal Carrito -->
-  <div id="modalCarrito" class="modal">
-    <div class="modal-content">
-      <h2>Tu Carrito</h2>
-      <ul id="listaCarrito"></ul>
-      <p id="totalCarrito">Total: $0</p>
-      <button onclick="cerrarModal()">Cerrar</button>
-      <button id="comprarBtn" onclick="comprar()">Comprar</button>
-    </div>
+  <!-- Mensaje de alerta -->
+  <div id="alerta" role="alert" aria-live="assertive" hidden>
+    ¡Producto agregado!
   </div>
 
-  <!-- Sección Contacto -->
-  <section id="contacto" class="seccion contacto">
-    <h2>Contáctanos</h2>
-    <p>¿Tienes preguntas? Escríbenos a contacto@tiendazapatos.com</p>
-    <p>Teléfono: (555) 123-4567</p>
-  </section>
+  <!-- Contenido principal -->
+  <main>
+    <!-- Sección Inicio -->
+    <section id="inicio" class="seccion">
+      <h1>Bienvenido a nuestra Tienda de Zapatos</h1>
+      <p>Zapatos deportivos, casuales y formales de calidad y con estilo.</p>
+    </section>
+
+    <!-- Sección Productos -->
+    <section id="productos" class="seccion">
+      <h2>Productos</h2>
+      <label for="busqueda" class="visually-hidden">Buscar productos</label>
+      <input type="text" id="busqueda" placeholder="Buscar productos..." aria-label="Buscar productos">
+      <div class="productos" id="contenedor-productos"></div>
+    </section>
+
+    <!-- Modal Carrito -->
+    <div id="modalCarrito" class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloCarrito" hidden>
+      <div class="modal-content">
+        <h2 id="tituloCarrito">Tu Carrito</h2>
+        <ul id="listaCarrito" aria-label="Lista de productos en el carrito"></ul>
+        <p id="totalCarrito">Total: $0</p>
+        <div class="botones-modal">
+          <button onclick="cerrarModal()">Cerrar</button>
+          <button id="comprarBtn" onclick="comprar()">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="seccion contacto">
+      <h2>Contáctanos</h2>
+      <p>¿Tienes preguntas? Escríbenos a <a href="mailto:contacto@tiendazapatos.com">contacto@tiendazapatos.com</a></p>
+      <p>Teléfono: <a href="tel:+525551234567">(555) 123-4567</a></p>
+    </section>
+  </main>
 
   <!-- Audios -->
   <audio id="sonidoDing" src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_3d82fe7e71.mp3?filename=ding-36029.mp3" preload="auto"></audio>
   <audio id="sonidoError" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_a280663cca.mp3?filename=error-126627.mp3" preload="auto"></audio>
 
   <!-- Script -->
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
+
 </body>
 </html>
