@@ -139,43 +139,7 @@
       <p><strong>Total: $<span id="total">0</span></strong></p>
     </aside>
   </main>
-
-  <script>
-    let carrito = [];
-    const listaCarrito = document.getElementById('lista-carrito');
-    const totalSpan = document.getElementById('total');
-
-    function agregarCarrito(button) {
-      const productoDiv = button.parentElement;
-      const nombre = productoDiv.getAttribute('data-nombre');
-      const precio = parseInt(productoDiv.getAttribute('data-precio'));
-
-      carrito.push({ nombre, precio });
-      actualizarCarrito();
-    }
-
-    function actualizarCarrito() {
-      listaCarrito.innerHTML = '';
-      let total = 0;
-      carrito.forEach((item, index) => {
-        total += item.precio;
-        const li = document.createElement('li');
-        li.textContent = `${item.nombre} - $${item.precio} `;
-        
-        const btnEliminar = document.createElement('button');
-        btnEliminar.textContent = 'X';
-        btnEliminar.style.marginLeft = '10px';
-        btnEliminar.onclick = () => {
-          carrito.splice(index, 1);
-          actualizarCarrito();
-        };
-
-        li.appendChild(btnEliminar);
-        listaCarrito.appendChild(li);
-      });
-      totalSpan.textContent = total;
-    }
-  </script>
+  
     <div id="icono-carrito" title="Ver carrito">🛒<span id="contador-carrito" style="font-size: 14px; margin-left: 4px;"></span></div>
 
   <!-- Modal carrito -->
