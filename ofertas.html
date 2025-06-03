@@ -5,6 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ofertas - Tienda de Zapatos</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Estilos específicos para ofertas */
+    .ofertas-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .oferta-card {
+      background: #f9f9f9;
+      border-left: 5px solid #ff5733;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .oferta-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    .oferta-icono {
+      font-size: 30px;
+      margin-bottom: 10px;
+      color: #ff5733;
+    }
+
+    .oferta-titulo {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .oferta-detalle {
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      .ofertas-container {
+        padding: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -18,14 +63,27 @@
       </ul>
     </nav>
   </header>
+
   <main>
     <section class="seccion">
-      <h2>Ofertas</h2>
-      <ul>
-        <li>🔥 20% de descuento en tenis</li>
-        <li>👞 Compra 2, paga 1 en mocasines</li>
-        <li>🎁 Envío gratis en compras mayores a $800</li>
-      </ul>
+      <h2 style="text-align:center; margin-top: 30px;">🎉 ¡Ofertas Especiales!</h2>
+      <div class="ofertas-container">
+        <div class="oferta-card">
+          <div class="oferta-icono">🔥</div>
+          <div class="oferta-titulo">20% de descuento en tenis</div>
+          <div class="oferta-detalle">Aprovecha y corre con estilo. Válido hasta el domingo.</div>
+        </div>
+        <div class="oferta-card">
+          <div class="oferta-icono">👞</div>
+          <div class="oferta-titulo">Compra 2, paga 1 en mocasines</div>
+          <div class="oferta-detalle">Elegancia al doble. Aplica en modelos seleccionados.</div>
+        </div>
+        <div class="oferta-card">
+          <div class="oferta-icono">🎁</div>
+          <div class="oferta-titulo">Envío gratis</div>
+          <div class="oferta-detalle">En todas tus compras mayores a $800. ¡Sin complicaciones!</div>
+        </div>
+      </div>
     </section>
   </main>
 </body>
