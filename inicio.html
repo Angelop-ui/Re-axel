@@ -1,30 +1,104 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Inicio - Tienda de Zapatos</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZapaTiza - Bienvenido</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f9f9f9, #eaeaea);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .inicio-container {
+      text-align: center;
+      background: white;
+      padding: 60px 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      width: 95%;
+    }
+
+    .titulo-zapatiza {
+      font-size: 48px;
+      color: #ff5733;
+      margin-bottom: 10px;
+    }
+
+    .subtitulo {
+      font-size: 20px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .descripcion {
+      text-align: left;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    .boton-ir-inicio {
+      text-decoration: none;
+      background-color: #ff5733;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .boton-ir-inicio:hover {
+      background-color: #e0441d;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 600px) {
+      .titulo-zapatiza {
+        font-size: 36px;
+      }
+
+      .subtitulo {
+        font-size: 16px;
+      }
+
+      .descripcion {
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <body class="fondo-inicio">
-  <header>
-    <nav class="menu-principal" aria-label="Menú principal">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="productos.html">Productos</a></li>
-        <li><a href="ofertas.html">Ofertas</a></li>
-        <li><a href="categorias.html">Categorías</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section class="seccion">
-      <h1>Bienvenido a nuestra Tienda de Zapatos</h1>
-      <p>Zapatos deportivos, casuales y formales de calidad y con estilo.</p>
-    </section>
-  </main>
+
+  <div class="inicio-container">
+    <h1 class="titulo-zapatiza">ZapaTiza</h1>
+    <p class="subtitulo">¡Bienvenido a la tienda más estilizada de calzado!</p>
+
+    <div class="descripcion">
+      <p><strong>ZapaTiza</strong> es mucho más que una tienda de zapatos. Somos una experiencia de moda y comodidad que se adapta a todos los estilos, edades y necesidades. Nos apasiona ayudarte a encontrar el calzado perfecto para cada ocasión: ya sea una caminata relajada, una reunión importante o una salida especial, aquí encontrarás lo que necesitas.</p>
+
+      <p>Desde sneakers modernos y cómodos, hasta zapatos formales de cuero y sandalias casuales para el día a día, nuestra colección está cuidadosamente seleccionada para ofrecerte calidad, diseño y funcionalidad a los mejores precios.</p>
+
+      <p>🎯 <strong>Nuestra misión:</strong> ofrecer calzado de alta calidad con el mejor servicio y una experiencia de compra sencilla y agradable.</p>
+      <p>🛍️ <strong>Explora:</strong> nuestras categorías de <em>zapatos deportivos, casuales, formales y más</em>.</p>
+      <p>🎁 <strong>Promociones exclusivas:</strong> accede a descuentos especiales y envío gratis en compras mayores a $800.</p>
+      <p>🧾 <strong>Fácil y seguro:</strong> paga con tarjeta o efectivo, y descarga tu ticket en PDF tras cada compra.</p>
+
+      <p>No importa si caminas, corres o bailas, en <strong>ZapaTiza</strong> tenemos el paso perfecto para ti.</p>
+    </div>
+
+    <a href="inicio.html" class="boton-ir-inicio">Entrar a la tienda</a>
+  </div>
+
 </body>
 </html>
