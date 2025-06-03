@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zapatos Deportivos - Tienda</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .productos { display: flex; gap: 20px; flex-wrap: wrap; }
+    .producto { border: 1px solid #ccc; padding: 10px; width: 200px; text-align: center; }
+    .carrito { position: fixed; top: 10px; right: 10px; width: 250px; border: 1px solid #333; padding: 10px; background: #f9f9f9; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="menu-principal" aria-label="Menú principal">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="ofertas.html">Ofertas</a></li>
+        <li><a href="categorias.html">Categorías</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h2>Zapatos Deportivos</h2>
+    <div class="productos">
+      <div class="producto" data-nombre="Modelo Air Zoom" data-precio="1200">
+        <img src="https://cdn.pixabay.com/photo/2016/11/29/03/28/shoes-1866573_1280.jpg" alt="Modelo Air Zoom" width="180" />
+        <h3>Modelo Air Zoom</h3>
+        <p>Comodidad para correr.</p>
+        <button onclick="agregarCarrito(this)">Agregar al carrito - $1200</button>
+      </div>
+      <div class="producto" data-nombre="Modelo Runner Pro" data-precio="1500">
+        <img src="https://cdn.pixabay.com/photo/2016/03/27/19/06/shoes-1281691_1280.jpg" alt="Modelo Runner Pro" width="180" />
+        <h3>Modelo Runner Pro</h3>
+        <p>Diseño profesional.</p>
+        <button onclick="agregarCarrito(this)">Agregar al carrito - $1500</button>
+      </div>
+      <div class="producto" data-nombre="Modelo Speedster" data-precio="1100">
+        <img src="https://cdn.pixabay.com/photo/2015/12/08/00/26/shoes-1081836_1280.jpg" alt="Modelo Speedster" width="180" />
+        <h3>Modelo Speedster</h3>
+        <p>Ligero y resistente.</p>
+        <button onclick="agregarCarrito(this)">Agregar al carrito - $1100</button>
+      </div>
+    </div>
+
+    <aside class="carrito">
+      <h3>Carrito de compras</h3>
+      <ul id="lista-carrito"></ul>
+      <p><strong>Total: $<span id="total">0</span></strong></p>
+    </aside>
+  </main>
+
+  <script>
+    let carrito = [];
+    const listaCarrito = document.getElementById('lista-carrito');
+    const totalSpan = document.getElementById('total');
+
+    function agregarCarrito(button) {
+      const productoDiv = button.parentElement;
+      const nombre = productoDiv.getAttribute('data-nombre');
+      const precio = parseInt(productoDiv.getAttribute('data-precio'));
+
+      carrito.push({ nombre, precio });
+      actualizarCarrito();
+    }
+
+    function actualizarCarrito() {
+      listaCarrito.innerHTML = '';
+      let total = 0;
+      carrito.forEach((item, index) => {
+        total += item.precio;
+        const li = document.createElement('li');
+        li.textContent = `${item.nombre} - $${item.precio} `;
+        
+        const btnEliminar = document.createElement('button');
+        btnEliminar.textContent = 'X';
+        btnEliminar.style.marginLeft = '10px';
+        btnEliminar.onclick = () => {
+          carrito.splice(index, 1);
+          actualizarCarrito();
+        };
+
+        li.appendChild(btnEliminar);
+        listaCarrito.appendChild(li);
+      });
+      totalSpan.textContent = total;
+    }
+  </script>
+</body>
+</html>
+
