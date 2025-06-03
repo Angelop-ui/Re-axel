@@ -6,9 +6,92 @@
   <title>Zapatos Formales - Tienda</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .productos { display: flex; gap: 20px; flex-wrap: wrap; }
-    .producto { border: 1px solid #ccc; padding: 10px; width: 200px; text-align: center; }
-    .carrito { position: fixed; top: 10px; right: 10px; width: 250px; border: 1px solid #333; padding: 10px; background: #f9f9f9; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+    }
+    .productos {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+    .producto {
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 200px;
+      text-align: center;
+    }
+    /* Ícono carrito */
+    #icono-carrito {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #007bff;
+      color: white;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    /* Modal carrito */
+    #modal-carrito {
+      position: fixed;
+      top: 0; right: 0;
+      width: 350px;
+      height: 100%;
+      background: white;
+      box-shadow: -3px 0 10px rgba(0,0,0,0.3);
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      z-index: 999;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    #modal-carrito.abierto {
+      transform: translateX(0);
+    }
+    #modal-carrito h3 {
+      margin-top: 0;
+    }
+    #modal-carrito ul {
+      list-style: none;
+      padding: 0;
+    }
+    #modal-carrito ul li {
+      margin-bottom: 10px;
+    }
+    #modal-carrito ul li button {
+      margin-left: 10px;
+    }
+    #cerrar-carrito {
+      background: #dc3545;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      float: right;
+      font-weight: bold;
+    }
+    /* Estilo para selección método pago */
+    .metodo-pago {
+      margin-top: 20px;
+    }
+    .btn-comprar {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
   </style>
 </head>
 <body>
@@ -46,49 +129,6 @@
       </div>
     </div>
 
-    <aside class="carrito">
-      <h3>Carrito de compras</h3>
-      <ul id="lista-carrito"></ul>
-      <p><strong>Total: $<span id="total">0</span></strong></p>
-    </aside>
-  </main>
-
-  <script>
-    let carrito = [];
-    const listaCarrito = document.getElementById('lista-carrito');
-    const totalSpan = document.getElementById('total');
-
-    function agregarCarrito(button) {
-      const productoDiv = button.parentElement;
-      const nombre = productoDiv.getAttribute('data-nombre');
-      const precio = parseInt(productoDiv.getAttribute('data-precio'));
-
-      carrito.push({ nombre, precio });
-      actualizarCarrito();
-    }
-
-    function actualizarCarrito() {
-      listaCarrito.innerHTML = '';
-      let total = 0;
-      carrito.forEach((item, index) => {
-        total += item.precio;
-        const li = document.createElement('li');
-        li.textContent = `${item.nombre} - $${item.precio} `;
-        
-        const btnEliminar = document.createElement('button');
-        btnEliminar.textContent = 'X';
-        btnEliminar.style.marginLeft = '10px';
-        btnEliminar.onclick = () => {
-          carrito.splice(index, 1);
-          actualizarCarrito();
-        };
-
-        li.appendChild(btnEliminar);
-        listaCarrito.appendChild(li);
-      });
-      totalSpan.textContent = total;
-    }
-  </script>
     <div id="icono-carrito" title="Ver carrito">🛒<span id="contador-carrito" style="font-size: 14px; margin-left: 4px;"></span></div>
 
   <!-- Modal carrito -->
