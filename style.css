@@ -40,11 +40,15 @@ h1, h2 {
   max-width: 1000px;
 }
 
+/* MODIFICACIÓN PRINCIPAL: Productos en fila horizontal */
 .productos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display: flex;
+  flex-direction: row; /* Cambiado para mostrar en fila */
+  flex-wrap: wrap; /* Permite que los productos se envuelvan a la siguiente línea */
+  justify-content: center;
   gap: 1.5rem;
   margin-top: 1rem;
+  padding: 20px;
 }
 
 .producto {
@@ -54,6 +58,9 @@ h1, h2 {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   text-align: center;
   transition: transform 0.2s;
+  flex: 0 1 220px; /* Ancho mínimo de 220px, no crece ni se encoge */
+  min-width: 220px; /* Ancho mínimo garantizado */
+  max-width: 280px; /* Ancho máximo */
 }
 
 .producto:hover {
@@ -171,7 +178,19 @@ h1, h2 {
   opacity: 1;
 }
 
-/* Responsive */
+/* Responsive - Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+  .productos {
+    flex-direction: column; /* En pantallas pequeñas vuelve a columna */
+    align-items: center;
+  }
+  
+  .producto {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
 @media (max-width: 600px) {
   .menu-principal ul {
     flex-direction: column;
@@ -229,7 +248,7 @@ h1, h2 {
 }
 
 .fondo-inicio {
-  background-image: url('fondo.jpg'); /* Cambia esto por la ruta de tu imagen */
+  background-image: url('fondo.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -263,6 +282,7 @@ h1, h2 {
   margin-bottom: 1.2rem;
   color: #444;
 }
+
 .contacto {
   max-width: 800px;
   margin: 2rem auto;
@@ -319,70 +339,16 @@ h1, h2 {
   background-color: #0056b3;
 }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f5f5;
-  margin: 0;
-  padding: 0;
-}
-
-.productos {
+/* Alternativa con mejor organización visual */
+.productos-alternativa {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  padding: 40px;
-}
-
-.producto {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 260px;
-  text-align: center;
-  padding: 16px;
-}
-
-.producto:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.producto img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 12px;
-}
-
-.producto h3 {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 8px;
-}
-
-.producto p {
-  font-size: 0.95rem;
-  color: #666;
-  margin-bottom: 12px;
-}
-
-.producto button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-}
-
-.producto button:hover {
-  background-color: #0056b3;
+  justify-content: space-around; /* Distribuye uniformemente */
+  gap: 20px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 input#busqueda {
