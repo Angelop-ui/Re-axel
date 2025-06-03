@@ -1,1 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zapatos Formales - Tienda</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .productos { display: flex; gap: 20px; flex-wrap: wrap; }
+    .producto { border: 1px solid #ccc; padding: 10px; width: 200px; text-align: center; }
+    .carrito { position: fixed; top: 10px; right: 10px; width: 250px; border: 1px solid #333; padding: 10px; background: #f9f9f9; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="menu-principal" aria-label="Menú principal">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="ofertas.html">Ofertas</a></li>
+        <li><a href="categorias.html">Categorías</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h2>Zapatos Formales</h2>
+    <div class="productos">
+      <div class="producto" data-nombre="Modelo Executive" data-precio="1800">
+        <img src="https://cdn.pixabay.com/photo/2017/08/02/01/02/shoes-2561436_1280.jpg" alt="Modelo Executive" width="180" />
+        <h3>Modelo Executive</h3>
+        <p>Elegancia para oficina y eventos.</p>
+        <button onclick="agregarCarrito(this)">Agregar al carrito - $1800</button>
+      </div>
+      <div class="producto" data-nombre="Modelo Classic Leather" data-precio="1600">
+        <img src="https://cdn.pixabay.com/photo/2017/01/14/12/59/shoes-1970578_1280.jpg" alt="Modelo Classic Leather" width="180" />
+        <h3>Modelo Classic Leather</h3>
+        <p>Clásico y sofisticado.</p>
+        <button onclick="agregarCarrito(this)">Agregar al carrito - $1600</button>
+      </div>
+      <div class="producto" data-nombre="Modelo Formal Pro" data-precio="1700">
+        <img src="https://cdn.pixabay.com/photo/2016/10/02/22/17/shoes-1710216_1280.jpg" alt="Modelo Formal Pro" width="180" />
+        <h3>Modelo Formal Pro</h3>
+        <p>Perfecto para ocasiones especiales.</p>
+        <button onclick="agregarCarrito(this)">Agregar al carrito - $1700</button>
+      </div>
+    </div>
+
+    <aside class="carrito">
+      <h3>Carrito de compras</h3>
+      <ul id="lista-carrito"></ul>
+      <p><strong>Total: $<span id="total">0</span></strong></p>
+    </aside>
+  </main>
+
+  <script>
+    let carrito = [];
+    const listaCarrito = document.getElementById('lista-carrito');
+    const totalSpan = document.getElementById('total');
+
+    function agregarCarrito(button) {
+      const productoDiv = button.parentElement;
+      const nombre = productoDiv.getAttribute('data-nombre');
+      const precio = parseInt(productoDiv.getAttribute('data-precio'));
+
+      carrito.push({ nombre, precio });
+      actualizarCarrito();
+    }
+
+    function actualizarCarrito() {
+      listaCarrito.innerHTML = '';
+      let total = 0;
+      carrito.forEach((item, index) => {
+        total += item.precio;
+        const li = document.createElement('li');
+        li.textContent = `${item.nombre} - $${item.precio} `;
+        
+        const btnEliminar = document.createElement('button');
+        btnEliminar.textContent = 'X';
+        btnEliminar.style.marginLeft = '10px';
+        btnEliminar.onclick = () => {
+          carrito.splice(index, 1);
+          actualizarCarrito();
+        };
+
+        li.appendChild(btnEliminar);
+        listaCarrito.appendChild(li);
+      });
+      totalSpan.textContent = total;
+    }
+  </script>
+</body>
+</html>
 
