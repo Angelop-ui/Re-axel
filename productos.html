@@ -104,9 +104,12 @@
 .productos {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center;  /* ✅ Esto centra horizontalmente los productos */
+  align-items: flex-start;
   gap: 30px;
   padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;  /* ✅ Esto centra todo el bloque en la página */
 }
 
 .producto {
@@ -159,6 +162,7 @@
 .producto button:hover {
   background-color: #0056b3;
 }
+
 
 input#busqueda {
   display: block;
