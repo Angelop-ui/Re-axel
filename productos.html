@@ -103,13 +103,14 @@
 
 .productos {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;  /* ✅ Esto centra horizontalmente los productos */
-  align-items: flex-start;
+  flex-direction: row;           /* ✅ Fuerza la dirección horizontal */
+  flex-wrap: wrap;               /* ✅ Permite que se envuelvan a la siguiente línea */
+  justify-content: center;       /* ✅ Centra horizontalmente los productos */
+  align-items: flex-start;       /* ✅ Alinea desde arriba */
   gap: 30px;
   padding: 40px;
   max-width: 1200px;
-  margin: 0 auto;  /* ✅ Esto centra todo el bloque en la página */
+  margin: 0 auto;               /* ✅ Centra todo el bloque en la página */
 }
 
 .producto {
@@ -118,7 +119,8 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 260px;
+  width: 260px;                 /* ✅ Ancho fijo para mantener consistencia */
+  flex-shrink: 0;              /* ✅ Evita que se compriman */
   text-align: center;
   padding: 16px;
 }
@@ -161,6 +163,31 @@
 
 .producto button:hover {
   background-color: #0056b3;
+}
+
+/* ✅ Media query para dispositivos móviles */
+@media (max-width: 768px) {
+  .productos {
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .producto {
+    width: 280px;               /* ✅ Ligeramente más ancho en móviles */
+  }
+}
+
+@media (max-width: 480px) {
+  .productos {
+    flex-direction: column;     /* ✅ En pantallas muy pequeñas, vuelve a columna */
+    align-items: center;
+  }
+  
+  .producto {
+    width: 100%;
+    max-width: 300px;
+  }
 }
 
 
