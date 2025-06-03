@@ -40,48 +40,93 @@ h1, h2 {
   max-width: 1000px;
 }
 
-/* MODIFICACIÓN PRINCIPAL: Productos en fila horizontal */
-.productos {
+y.productos {
   display: flex;
-  flex-direction: row; /* Cambiado para mostrar en fila */
-  flex-wrap: wrap; /* Permite que los productos se envuelvan a la siguiente línea */
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1rem;
-  padding: 20px;
+  flex-direction: row;           /* ✅ Fuerza la dirección horizontal */
+  flex-wrap: wrap;               /* ✅ Permite que se envuelvan a la siguiente línea */
+  justify-content: center;       /* ✅ Centra horizontalmente los productos */
+  align-items: flex-start;       /* ✅ Alinea desde arriba */
+  gap: 30px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;               /* ✅ Centra todo el bloque en la página */
 }
 
 .producto {
-  background: white;
-  padding: 20px;
+  background-color: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 260px;                 /* ✅ Ancho fijo para mantener consistencia */
+  flex-shrink: 0;              /* ✅ Evita que se compriman */
   text-align: center;
-  transition: transform 0.2s;
-  flex: 0 1 220px; /* Ancho mínimo de 220px, no crece ni se encoge */
-  min-width: 220px; /* Ancho mínimo garantizado */
-  max-width: 280px; /* Ancho máximo */
+  padding: 16px;
 }
 
 .producto:hover {
-  transform: scale(1.02);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .producto img {
   width: 100%;
-  height: auto;
-  max-height: 180px;
-  object-fit: contain;
-  margin-bottom: 1rem;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.producto h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.producto p {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 12px;
 }
 
 .producto button {
-  background-color: #28a745;
+  background-color: #007bff;
   color: white;
   border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
+  padding: 10px 16px;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.producto button:hover {
+  background-color: #0056b3;
+}
+
+/* ✅ Media query para dispositivos móviles */
+@media (max-width: 768px) {
+  .productos {
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .producto {
+    width: 280px;               /* ✅ Ligeramente más ancho en móviles */
+  }
+}
+
+@media (max-width: 480px) {
+  .productos {
+    flex-direction: column;     /* ✅ En pantallas muy pequeñas, vuelve a columna */
+    align-items: center;
+  }
+  
+  .producto {
+    width: 100%;
+    max-width: 300px;
+  }
 }
 
 #busqueda {
