@@ -240,3 +240,130 @@ h1, h2 {
   color: white;
   text-shadow: 1px 1px 3px black;
 }
+
+  /* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo general */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background-color: #1e1e1e;
+  padding: 1rem 2rem;
+}
+
+.menu-principal ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.menu-principal a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu-principal a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Input búsqueda */
+#busqueda {
+  display: block;
+  margin: 0 auto 2rem auto;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Contenedor de productos */
+.productos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+/* Tarjeta de producto */
+.producto {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  max-width: 220px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.producto:hover {
+  transform: translateY(-5px);
+}
+
+.producto img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.producto h3 {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.producto p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+/* Botón */
+.producto button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.producto button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-principal ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .productos {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
