@@ -23,95 +23,104 @@
     <main>
       <section class="seccion">
         <h2>Productos</h2>
-        <input type="text" id="busqueda" placeholder="Buscar productos..." />
+        <input type="text" id="busqueda" placeholder="Buscar productos por nombre o descripción..." />
 
         <div class="productos" id="contenedor-productos">
           <!-- Elegantes -->
-          <div class="producto" data-nombre="Modelo Executive" data-precio="1800">
+          <div class="producto" data-nombre="Modelo Executive" data-precio="1800" data-categoria="elegante">
             <img src="1.jpg" alt="Modelo Executive" />
             <h3>Modelo Executive</h3>
-            <p>Elegancia para oficina y eventos.</p>
+            <p>Elegancia para oficina y eventos especiales.</p>
             <button onclick="agregarCarrito(this)">Agregar al carrito - $1800</button>
           </div>
           
-          <div class="producto" data-nombre="Modelo Classic Leather" data-precio="1600">
+          <div class="producto" data-nombre="Modelo Classic Leather" data-precio="1600" data-categoria="elegante">
             <img src="2.jpg" alt="Modelo Classic Leather" />
             <h3>Modelo Classic Leather</h3>
-            <p>Clásico y sofisticado.</p>
+            <p>Clásico y sofisticado para cualquier ocasión.</p>
             <button onclick="agregarCarrito(this)">Agregar al carrito - $1600</button>
           </div>
           
-          <div class="producto" data-nombre="Modelo Formal Pro" data-precio="1700">
+          <div class="producto" data-nombre="Modelo Formal Pro" data-precio="1700" data-categoria="elegante">
             <img src="3.png" alt="Modelo Formal Pro" />
             <h3>Modelo Formal Pro</h3>
-            <p>Perfecto para ocasiones especiales.</p>
+            <p>Perfecto para ocasiones especiales y formales.</p>
             <button onclick="agregarCarrito(this)">Agregar al carrito - $1700</button>
           </div>
 
           <!-- Deportivos -->
-          <div class="producto" data-nombre="Modelo Air Zoom" data-precio="1200">
+          <div class="producto" data-nombre="Modelo Air Zoom" data-precio="1200" data-categoria="deportivo">
             <img src="4.jpeg" alt="Modelo Air Zoom" />
             <h3>Modelo Air Zoom</h3>
-            <p>Comodidad para correr.</p>
+            <p>Comodidad y tecnología para correr.</p>
             <button onclick="agregarCarrito(this)">Agregar al carrito - $1200</button>
           </div>
           
-          <div class="producto" data-nombre="Modelo Runner Pro" data-precio="1500">
+          <div class="producto" data-nombre="Modelo Runner Pro" data-precio="1500" data-categoria="deportivo">
             <img src="5.jpg" alt="Modelo Runner Pro" />
             <h3>Modelo Runner Pro</h3>
-            <p>Diseño profesional.</p>
+            <p>Diseño profesional para deportistas serios.</p>
             <button onclick="agregarCarrito(this)">Agregar al carrito - $1500</button>
           </div>
           
-          <div class="producto" data-nombre="Modelo Speedster" data-precio="1100">
+          <div class="producto" data-nombre="Modelo Speedster" data-precio="1100" data-categoria="deportivo">
             <img src="6.jpg" alt="Modelo Speedster" />
             <h3>Modelo Speedster</h3>
-            <p>Ligero y resistente.</p>
+            <p>Ligero y resistente para máximo rendimiento.</p>
             <button onclick="agregarCarrito(this)">Agregar al carrito - $1100</button>
           </div>
 
           <!-- Urbanos -->
-          <div class="producto" data-nombre="Modelo Urban Walk" data-precio="900">
+          <div class="producto" data-nombre="Modelo Urban Walk" data-precio="900" data-categoria="urbano">
             <img src="7.jpeg" alt="Modelo Urban Walk" />
             <h3>Modelo Urban Walk</h3>
-            <p>Perfecto para el día a día.</p>
+            <p>Perfecto para el día a día en la ciudad.</p>
             <button onclick="agregarCarrito(this)">Agregar al carrito - $900</button>
           </div>
           
-          <div class="producto" data-nombre="Modelo City Comfort" data-precio="1100">
+          <div class="producto" data-nombre="Modelo City Comfort" data-precio="1100" data-categoria="urbano">
             <img src="8.webp" alt="Modelo City Comfort" />
             <h3>Modelo City Comfort</h3>
-            <p>Diseño moderno y cómodo.</p>
+            <p>Diseño moderno y cómodo para uso diario.</p>
             <button onclick="agregarCarrito(this)">Agregar al carrito - $1100</button>
           </div>
           
-          <div class="producto" data-nombre="Modelo Casual Flex" data-precio="1000">
+          <div class="producto" data-nombre="Modelo Casual Flex" data-precio="1000" data-categoria="urbano">
             <img src="9.webp" alt="Modelo Casual Flex" />
             <h3>Modelo Casual Flex</h3>
-            <p>Ligero y versátil.</p>
+            <p>Ligero y versátil para cualquier momento.</p>
             <button onclick="agregarCarrito(this)">Agregar al carrito - $1000</button>
           </div>
+        </div>
+
+        <div id="sin-resultados" class="sin-resultados" style="display: none;">
+          <p>No se encontraron productos que coincidan con tu búsqueda.</p>
+          <p>Intenta con otros términos o revisa nuestro catálogo completo.</p>
         </div>
       </section>
     </main>
   </div>
 
   <!-- Ícono carrito -->
-  <div id="icono-carrito" title="Ver carrito">🛒<span id="contador-carrito" style="font-size: 14px; margin-left: 4px;"></span></div>
+  <div id="icono-carrito" title="Ver carrito">
+    🛒
+    <span id="contador-carrito" style="font-size: 14px; margin-left: 4px;"></span>
+  </div>
 
   <!-- Modal carrito -->
   <div id="modal-carrito" aria-modal="true" role="dialog" aria-labelledby="titulo-carrito" tabindex="-1">
-    <button id="cerrar-carrito" aria-label="Cerrar carrito">X</button>
+    <button id="cerrar-carrito" aria-label="Cerrar carrito">✕</button>
     <h3 id="titulo-carrito">Carrito de Compras</h3>
     <ul id="lista-carrito"></ul>
     <p><strong>Total: $<span id="total">0</span></strong></p>
 
     <div class="metodo-pago">
-      <label><input type="radio" name="pago" value="Tarjeta" checked /> Tarjeta</label>
-      <label><input type="radio" name="pago" value="Efectivo" /> Efectivo</label>
+      <h4>Método de Pago:</h4>
+      <label><input type="radio" name="pago" value="Tarjeta" checked /> 💳 Tarjeta</label>
+      <label><input type="radio" name="pago" value="Efectivo" /> 💵 Efectivo</label>
     </div>
 
-    <button class="btn-comprar" id="btn-comprar">Comprar</button>
+    <button class="btn-comprar" id="btn-comprar">Finalizar Compra</button>
   </div>
 
   <!-- Librería jsPDF para generar PDF -->
@@ -129,14 +138,27 @@
     const totalSpan = document.getElementById('total');
     const btnComprar = document.getElementById('btn-comprar');
     const contadorCarrito = document.getElementById('contador-carrito');
+    const busquedaInput = document.getElementById('busqueda');
+    const productos = document.querySelectorAll('.producto');
+    const sinResultados = document.getElementById('sin-resultados');
 
     // Mostrar / ocultar modal carrito
     iconoCarrito.addEventListener('click', () => {
       modalCarrito.classList.toggle('abierto');
       modalCarrito.focus();
     });
+
     cerrarCarritoBtn.addEventListener('click', () => {
       modalCarrito.classList.remove('abierto');
+    });
+
+    // Cerrar modal al hacer clic fuera de él
+    document.addEventListener('click', (e) => {
+      if (modalCarrito.classList.contains('abierto') && 
+          !modalCarrito.contains(e.target) && 
+          !iconoCarrito.contains(e.target)) {
+        modalCarrito.classList.remove('abierto');
+      }
     });
 
     // Agregar producto al carrito
@@ -145,8 +167,42 @@
       const nombre = productoDiv.getAttribute('data-nombre');
       const precio = parseInt(productoDiv.getAttribute('data-precio'));
 
+      // Animación del botón
+      button.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        button.style.transform = 'scale(1)';
+      }, 100);
+
       carrito.push({ nombre, precio });
       actualizarCarrito();
+
+      // Mostrar feedback visual
+      mostrarNotificacion(`${nombre} agregado al carrito`);
+    }
+
+    // Mostrar notificación
+    function mostrarNotificacion(mensaje) {
+      const notificacion = document.createElement('div');
+      notificacion.textContent = mensaje;
+      notificacion.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background: linear-gradient(45deg, #28a745, #20c997);
+        color: white;
+        padding: 15px 20px;
+        border-radius: 25px;
+        z-index: 1001;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        animation: slideIn 0.3s ease;
+      `;
+      
+      document.body.appendChild(notificacion);
+      
+      setTimeout(() => {
+        notificacion.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => notificacion.remove(), 300);
+      }, 2000);
     }
 
     // Actualizar lista y total carrito
@@ -158,17 +214,20 @@
         total += item.precio;
 
         const li = document.createElement('li');
-        li.textContent = `${item.nombre} - $${item.precio}`;
-
+        
+        const infoDiv = document.createElement('div');
+        infoDiv.innerHTML = `<strong>${item.nombre}</strong><br><span style="color: #666;">$${item.precio}</span>`;
+        
         const btnEliminar = document.createElement('button');
-        btnEliminar.textContent = 'X';
-        btnEliminar.style.marginLeft = '10px';
+        btnEliminar.textContent = '×';
         btnEliminar.setAttribute('aria-label', `Eliminar ${item.nombre} del carrito`);
         btnEliminar.onclick = () => {
           carrito.splice(index, 1);
           actualizarCarrito();
+          mostrarNotificacion(`${item.nombre} eliminado del carrito`);
         };
 
+        li.appendChild(infoDiv);
         li.appendChild(btnEliminar);
         listaCarrito.appendChild(li);
       });
@@ -195,23 +254,40 @@
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF();
 
-      doc.setFontSize(18);
-      doc.text("Ticket de Compra", 20, 20);
+      // Encabezado
+      doc.setFontSize(20);
+      doc.text("🛒 TICKET DE COMPRA", 20, 20);
 
       doc.setFontSize(12);
-      doc.text(`Fecha: ${new Date().toLocaleString()}`, 20, 30);
-      doc.text(`Método de pago: ${metodoPago}`, 20, 40);
+      doc.text(`Fecha: ${new Date().toLocaleString()}`, 20, 35);
+      doc.text(`Método de pago: ${metodoPago}`, 20, 45);
+      doc.text("=" .repeat(50), 20, 55);
 
-      let y = 50;
+      // Productos
+      let y = 65;
       let total = 0;
+      doc.text("PRODUCTOS:", 20, y);
+      y += 10;
+
       carrito.forEach((item, i) => {
-        doc.text(`${i + 1}. ${item.nombre} - $${item.precio}`, 20, y);
-        y += 10;
+        doc.text(`${i + 1}. ${item.nombre}`, 25, y);
+        doc.text(`$${item.precio}`, 150, y);
+        y += 8;
         total += item.precio;
       });
 
-      doc.setFontSize(14);
-      doc.text(`Total: $${total}`, 20, y + 10);
+      // Total
+      y += 10;
+      doc.text("=" .repeat(50), 20, y);
+      y += 10;
+      doc.setFontSize(16);
+      doc.text(`TOTAL: $${total}`, 20, y);
+
+      // Footer
+      y += 20;
+      doc.setFontSize(10);
+      doc.text("¡Gracias por su compra!", 20, y);
+      doc.text("Tienda de Zapatos - www.tiendazapatos.com", 20, y + 10);
 
       doc.save("ticket_compra.pdf");
 
@@ -219,134 +295,76 @@
       carrito = [];
       actualizarCarrito();
       modalCarrito.classList.remove('abierto');
-      alert('Compra realizada. Gracias por su preferencia!');
+      mostrarNotificacion('¡Compra realizada exitosamente!');
     }
 
-    // Funcionalidad de búsqueda de productos
-    const busquedaInput = document.getElementById('busqueda');
-    const productos = document.querySelectorAll('.producto');
-
+    // Funcionalidad de búsqueda mejorada
     busquedaInput.addEventListener('input', (e) => {
-      const textoBusqueda = e.target.value.toLowerCase();
+      const textoBusqueda = e.target.value.toLowerCase().trim();
+      let productosVisibles = 0;
       
       productos.forEach(producto => {
         const nombre = producto.getAttribute('data-nombre').toLowerCase();
         const descripcion = producto.querySelector('p').textContent.toLowerCase();
+        const categoria = producto.getAttribute('data-categoria').toLowerCase();
         
-        if (nombre.includes(textoBusqueda) || descripcion.includes(textoBusqueda)) {
+        // Búsqueda más flexible
+        const coincide = nombre.includes(textoBusqueda) || 
+                        descripcion.includes(textoBusqueda) ||
+                        categoria.includes(textoBusqueda);
+        
+        if (coincide || textoBusqueda === '') {
           producto.style.display = 'block';
+          productosVisibles++;
+          
+          // Animación de entrada
+          producto.style.animation = 'fadeIn 0.3s ease';
         } else {
           producto.style.display = 'none';
         }
       });
+
+      // Mostrar mensaje si no hay resultados
+      if (productosVisibles === 0 && textoBusqueda !== '') {
+        sinResultados.style.display = 'block';
+      } else {
+        sinResultados.style.display = 'none';
+      }
+    });
+
+    // Buscar al presionar Enter
+    busquedaInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        // La búsqueda ya se realiza en tiempo real
+      }
+    });
+
+    // Agregar animaciones CSS
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes slideIn {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+      }
+      
+      @keyframes slideOut {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(100%); opacity: 0; }
+      }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Inicializar la aplicación
+    document.addEventListener('DOMContentLoaded', () => {
+      // Enfocar la barra de búsqueda al cargar
+      busquedaInput.focus();
     });
   </script>
-
-  <style>
-    /* Estilos específicos para el carrito que no están en el CSS externo */
-    #icono-carrito {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #007bff;
-      color: white;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 24px;
-      cursor: pointer;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    }
-
-    #modal-carrito {
-      position: fixed;
-      top: 0; 
-      right: 0;
-      width: 350px;
-      height: 100%;
-      background: white;
-      box-shadow: -3px 0 10px rgba(0,0,0,0.3);
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-      z-index: 999;
-      padding: 20px;
-      overflow-y: auto;
-    }
-
-    #modal-carrito.abierto {
-      transform: translateX(0);
-    }
-
-    #modal-carrito h3 {
-      margin-top: 0;
-    }
-
-    #modal-carrito ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    #modal-carrito ul li {
-      margin-bottom: 10px;
-      padding: 10px;
-      background: #f8f9fa;
-      border-radius: 5px;
-    }
-
-    #modal-carrito ul li button {
-      margin-left: 10px;
-      background: #dc3545;
-      color: white;
-      border: none;
-      padding: 5px 8px;
-      border-radius: 3px;
-      cursor: pointer;
-    }
-
-    #cerrar-carrito {
-      background: #dc3545;
-      color: white;
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-      float: right;
-      font-weight: bold;
-      border-radius: 3px;
-    }
-
-    .metodo-pago {
-      margin-top: 20px;
-      padding: 15px;
-      background: #f8f9fa;
-      border-radius: 5px;
-    }
-
-    .metodo-pago label {
-      display: block;
-      margin-bottom: 10px;
-      cursor: pointer;
-    }
-
-    .btn-comprar {
-      margin-top: 20px;
-      width: 100%;
-      padding: 12px;
-      background: #28a745;
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-
-    .btn-comprar:hover {
-      background: #218838;
-    }
-  </style>
 </body>
 </html>
