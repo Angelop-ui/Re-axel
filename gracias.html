@@ -3,22 +3,123 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gracias</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      padding: 4rem;
-      background-color: #f0f8ff;
-    }
-    h1 {
-      color: #007bff;
-    }
-  </style>
+  <title>¡Gracias! - Tienda de Zapatos</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta http-equiv="refresh" content="2;url=index.html">
 </head>
 <body>
-  <h1>¡Gracias por tu mensaje!</h1>
-  <p>Te responderemos lo antes posible.</p>
-  <a href="index.html">Volver al inicio</a>
+  <header>
+    <nav class="menu-principal" aria-label="Menú principal">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="ofertas.html">Ofertas</a></li>
+        <li><a href="categorias.html">Categorías</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="seccion gracias">
+      <div class="mensaje-gracias">
+        <div class="icono-check">✓</div>
+        <h2>¡Mensaje enviado con éxito!</h2>
+        <p>Gracias por contactarnos. Hemos recibido tu mensaje y te responderemos lo antes posible.</p>
+        <p class="redireccion">Serás redirigido al inicio en <span id="contador">2</span> segundos...</p>
+        <a href="index.html" class="btn-inicio">Ir al inicio ahora</a>
+      </div>
+    </section>
+  </main>
+  
+  <style>
+  .gracias {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    padding: 2rem;
+  }
+  
+  .mensaje-gracias {
+    max-width: 500px;
+    text-align: center;
+    background-color: #fff;
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .icono-check {
+    font-size: 4rem;
+    color: #28a745;
+    margin-bottom: 1rem;
+    background-color: #d4edda;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+    border: 3px solid #28a745;
+  }
+  
+  .mensaje-gracias h2 {
+    color: #28a745;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .mensaje-gracias p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  .redireccion {
+    font-size: 0.95rem;
+    color: #888;
+    font-style: italic;
+  }
+  
+  #contador {
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  .btn-inicio {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-inicio:hover {
+    background-color: #0056b3;
+  }
+  </style>
+  
+  <script>
+    // Contador visual
+    let tiempoRestante = 2;
+    const contadorElemento = document.getElementById('contador');
+    
+    const actualizarContador = () => {
+      if (tiempoRestante > 0) {
+        contadorElemento.textContent = tiempoRestante;
+        tiempoRestante--;
+        setTimeout(actualizarContador, 1000);
+      }
+    };
+    
+    // Iniciar el contador cuando la página carga
+    actualizarContador();
+  </script>
 </body>
 </html>
