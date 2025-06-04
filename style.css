@@ -89,15 +89,17 @@ h2 {
   box-shadow: 0 4px 20px rgba(0,123,255,0.15);
 }
 
-/* ========== PRODUCTOS - GRID MEJORADO ========== */
+/* ========== PRODUCTOS - LAYOUT HORIZONTAL ========== */
 .productos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
   gap: 2rem;
   padding: 2rem;
   max-width: 1400px;
   margin: 0 auto;
-  justify-items: center;
 }
 
 .producto {
@@ -444,9 +446,12 @@ h2 {
 /* ========== RESPONSIVE DESIGN ========== */
 @media (max-width: 1200px) {
   .productos {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.5rem;
     padding: 1.5rem;
+  }
+  
+  .producto {
+    width: 280px;
   }
 }
 
@@ -458,7 +463,8 @@ h2 {
   }
   
   .productos {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    flex-direction: column;
+    align-items: center;
     gap: 1.5rem;
     padding: 1rem;
   }
@@ -502,7 +508,8 @@ h2 {
 
 @media (max-width: 480px) {
   .productos {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: center;
     padding: 1rem 0.5rem;
   }
   
