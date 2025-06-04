@@ -1,4 +1,4 @@
-/* ========== RESET BÁSICO ========== */More actions
+/* ========== RESET BÁSICO ========== */
 * {
   margin: 0;
   padding: 0;
@@ -380,78 +380,46 @@ h2 {
 }
 
 /* ========== PÁGINA DE INICIO ========== */
-.fondo-inicio {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
 .inicio-body {
   margin: 0;
   padding: 0;
   background: linear-gradient(135deg, #ff7043, #ffa726);
   height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
-  text-align: center;
-  color: white;
   align-items: center;
   font-family: 'Arial', sans-serif;
 }
 
 .inicio-container {
-  animation: fadeInUp 1s ease-out;
   text-align: center;
   color: white;
   animation: fadeIn 1.5s ease-in-out;
 }
 
 .titulo-zapatiza {
-  font-size: 4.5rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
   font-size: 4rem;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 .subtitulo {
-  font-size: 1.8rem;
-  margin-bottom: 2.5rem;
-  font-weight: 300;
-  opacity: 0.9;
   font-size: 1.5rem;
   margin-bottom: 30px;
 }
 
 .boton-ir-inicio {
-  display: inline-block;
   background-color: white;
-  color: #667eea;
-  padding: 1.2rem 3rem;
-  border-radius: 50px;
   color: #ff5722;
   padding: 15px 30px;
   border-radius: 30px;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 1.2rem;
-  transition: all 0.4s ease;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
   font-weight: bold;
   transition: background 0.3s ease;
 }
 
 .boton-ir-inicio:hover {
-  background-color: #f8f9fa;
-  transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(0,0,0,0.3);
   background-color: #ffe0b2;
-}
-
-/* Animación de entrada */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 .fondo-inicio {
@@ -467,39 +435,10 @@ h2 {
   text-shadow: 1px 1px 3px black;
 }
 
-.bienvenida {
-  max-width: 800px;
-  margin: 2rem auto;
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  line-height: 1.6;
-  font-size: 1.1rem;
-}
-
-.bienvenida h1 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  font-size: 2rem;
-  color: #222;
-}
-
-.bienvenida p {
-  margin-bottom: 1.2rem;
-  color: #444;
-}
-
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Animación de entrada */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ========== RESPONSIVE DESIGN ========== */
@@ -517,44 +456,44 @@ h2 {
     gap: 1rem;
     padding: 1rem;
   }
-
+  
   .productos {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
     padding: 1rem;
   }
-
+  
   .producto {
     max-width: none;
   }
-
+  
   h1 {
     font-size: 2rem;
   }
-
+  
   h2 {
     font-size: 1.5rem;
   }
-
+  
   .titulo-zapatiza {
     font-size: 3rem;
   }
-
+  
   .subtitulo {
     font-size: 1.3rem;
   }
-
+  
   .bienvenida, .contacto {
     margin: 2rem 1rem;
     padding: 2rem;
   }
-
+  
   #carritoBtn {
     bottom: 1rem;
     right: 1rem;
     padding: 0.8rem 1.2rem;
   }
-
+  
   #alerta {
     bottom: 5rem;
     right: 1rem;
@@ -566,25 +505,25 @@ h2 {
     grid-template-columns: 1fr;
     padding: 1rem 0.5rem;
   }
-
+  
   .producto {
     padding: 1rem;
   }
-
+  
   .modal-content {
     padding: 2rem;
     margin: 1rem;
   }
-
+  
   #busqueda {
     margin: 0 1rem 2rem 1rem;
     width: calc(100% - 2rem);
   }
-
+  
   .titulo-zapatiza {
     font-size: 2.5rem;
   }
-
+  
   .boton-ir-inicio {
     padding: 1rem 2rem;
     font-size: 1rem;
